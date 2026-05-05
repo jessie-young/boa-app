@@ -1,0 +1,44 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$boa-red: (
+  50: #ffebee, 100: #ffcdd2, 200: #ef9a9a, 300: #e57373, 400: #ef5350,
+  500: #e31837, 600: #c4142f, 700: #a01027, 800: #7d0c1f, 900: #590817,
+  contrast: (50: #000, 100: #000, 200: #000, 300: #000, 400: #fff, 500: #fff, 600: #fff, 700: #fff, 800: #fff, 900: #fff)
+);
+
+$boa-blue: (
+  50: #e3e8f0, 100: #b9c4d8, 200: #8b9dbe, 300: #5d76a3, 400: #3b5990,
+  500: #012169, 600: #011d61, 700: #011956, 800: #01134c, 900: #000a3a,
+  contrast: (50: #000, 100: #000, 200: #000, 300: #fff, 400: #fff, 500: #fff, 600: #fff, 700: #fff, 800: #fff, 900: #fff)
+);
+
+$boa-primary: mat.define-palette($boa-blue, 500);
+$boa-accent: mat.define-palette($boa-red, 500);
+$boa-warn: mat.define-palette(mat.$red-palette);
+
+$boa-theme: mat.define-light-theme((
+  color: (primary: $boa-primary, accent: $boa-accent, warn: $boa-warn),
+  typography: mat.define-typography-config($font-family: 'Inter, system-ui, -apple-system, sans-serif'),
+  density: 0,
+));
+
+@include mat.all-component-themes($boa-theme);
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #f5f7fa;
+  color: #1f2937;
+}
+
+a {
+  color: #012169;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }

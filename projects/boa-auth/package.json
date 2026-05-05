@@ -1,0 +1,14 @@
+{
+  "name": "@boa/auth",
+  "version": "1.0.0",
+  "description": "Bank of America internal SSO/MFA authentication client",
+  "peerDependencies": {
+    "@angular/common": "^14.2.0",
+    "@angular/core": "^14.2.0",
+    "rxjs": "^7.5.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}

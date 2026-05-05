@@ -1,0 +1,178 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "boa-design-system": {
+      "projectType": "library",
+      "root": "projects/boa-design-system",
+      "sourceRoot": "projects/boa-design-system/src",
+      "prefix": "boa",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/boa-design-system/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/boa-design-system/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/boa-design-system/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/boa-design-system/src/test.ts",
+            "tsConfig": "projects/boa-design-system/tsconfig.spec.json",
+            "karmaConfig": "projects/boa-design-system/karma.conf.js"
+          }
+        }
+      }
+    },
+    "boa-auth": {
+      "projectType": "library",
+      "root": "projects/boa-auth",
+      "sourceRoot": "projects/boa-auth/src",
+      "prefix": "boa",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/boa-auth/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/boa-auth/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/boa-auth/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        }
+      }
+    },
+    "boa-analytics": {
+      "projectType": "library",
+      "root": "projects/boa-analytics",
+      "sourceRoot": "projects/boa-analytics/src",
+      "prefix": "boa",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/boa-analytics/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/boa-analytics/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/boa-analytics/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        }
+      }
+    },
+    "boa-data-providers": {
+      "projectType": "library",
+      "root": "projects/boa-data-providers",
+      "sourceRoot": "projects/boa-data-providers/src",
+      "prefix": "boa",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/boa-data-providers/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/boa-data-providers/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/boa-data-providers/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        }
+      }
+    },
+    "boa-banking-app": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/boa-banking-app",
+      "sourceRoot": "projects/boa-banking-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/boa-banking-app",
+            "index": "projects/boa-banking-app/src/index.html",
+            "main": "projects/boa-banking-app/src/main.ts",
+            "polyfills": "projects/boa-banking-app/src/polyfills.ts",
+            "tsConfig": "projects/boa-banking-app/tsconfig.app.json",
+            "assets": [
+              "projects/boa-banking-app/src/favicon.ico",
+              "projects/boa-banking-app/src/assets"
+            ],
+            "styles": [
+              "projects/boa-banking-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "1mb",
+                  "maximumError": "2mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "10kb",
+                  "maximumError": "20kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/boa-banking-app/src/environments/environment.ts",
+                  "with": "projects/boa-banking-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "boa-banking-app:build:production"
+            },
+            "development": {
+              "browserTarget": "boa-banking-app:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        }
+      }
+    }
+  }
+}

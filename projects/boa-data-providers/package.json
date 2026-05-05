@@ -1,0 +1,14 @@
+{
+  "name": "@boa/data-providers",
+  "version": "1.0.0",
+  "description": "Adapters for third-party financial data providers (market data, accounts, transactions)",
+  "peerDependencies": {
+    "@angular/common": "^14.2.0",
+    "@angular/core": "^14.2.0",
+    "rxjs": "^7.5.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
